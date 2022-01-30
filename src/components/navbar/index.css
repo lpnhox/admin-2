@@ -1,0 +1,16 @@
+.navComponent{
+    background-color: black;
+    height: 13vh;
+    color: rgba(255, 255, 255, 1);
+    font-size: 30px;
+} 
+.grid_container{
+    height: 100%;
+}
+.div_navGrid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}

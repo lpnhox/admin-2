@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Container } from '@mui/material';
+import { useState } from 'react';
 
-function App() {
+//chlid components
+
+import Navbar from "./components/navbar/index.js";
+import NavLeft, {ExpandButton} from './components/navleft/index.js';
+
+const navLeftItems = [{
+  name: 'Home'
+}, {
+  name: 'About'
+}, {
+  name: 'Contact'
+}]
+
+
+const App = () => {
+
+  const [isExpanded, setExpanded] = useState(false);
+  const handleOnClick = () => {
+    setExpanded(!isExpanded);
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container disableGutters={true} maxWidth="fixed" className="App">
+      <Navbar onClick={handleOnClick}/>
+      {isExpanded?<NavLeft item={navLeftItems}/>:<ExpandButton onClick={handleOnClick}/>}
+    </Container>
   );
 }
 
